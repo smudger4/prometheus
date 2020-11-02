@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  prometheus:
+      depends_on:
+      - cadvisor
+      - pushgateway
+      - alertmanager
+      - networkowl_mqtt
+
+#  node-exporter:
+  alertmanager:
+  cadvisor:
+  grafana:
+  pushgateway:
+  networkowl_mqtt:
+    image: hikhvar/mqtt2prometheus
+    ports:
+      - "9641:9641"
+    volumes:
+      - ./mqtt2prometheus/networkowl_mqtt.yaml:/config.yaml
+    networks:
+      - back-tier
+    restart: always

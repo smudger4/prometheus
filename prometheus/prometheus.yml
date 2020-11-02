@@ -73,7 +73,7 @@ scrape_configs:
     - names:
       - 'tasks.networkowl_mqtt'
       type: 'A'
-      port: 9344
+      port: 9641
     static_configs:
-      - targets: ['networkowl_mqtt:9344']
+      - targets: ['networkowl_mqtt:9641']
 
