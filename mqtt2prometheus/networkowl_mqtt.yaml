@@ -1,7 +1,7 @@
 # Settings for the MQTT Client. Currently only these three are supported
 mqtt:
   # The MQTT broker to connect to
-  server: tcp://192.168.127.85:1883
+  server: tcp://192.168.127.4:1883
   # Optional: Username and Password for authenticating with the MQTT Server
   # user: bob
   # password: happylittleclouds
@@ -39,12 +39,12 @@ metrics:
     mqtt_name: "solar_expWattsNow"
     help: "solar PV power being exported now"
     type: gauge
-  - prom_name: networkowl_consumed_energy_kilowatthours_now
-    mqtt_name: "elec_usedWattsNow"
+  - prom_name: networkowl_used_energy_kilowatthours_now
+    mqtt_name: "electricity_usedWattsNow"
     help: "power being using now"
     type: gauge
-  - prom_name: networkowl_consumed_energy_kilowatthours_today
-    mqtt_name: "elec_usedWattsToday"
+  - prom_name: networkowl_used_energy_kilowatthours_today
+    mqtt_name: "electricity_usedWattsToday"
     help: "power used today"
     type: gauge
   - prom_name: networkowl_heating_temp_now
