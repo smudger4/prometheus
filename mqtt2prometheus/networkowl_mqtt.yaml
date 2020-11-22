@@ -1,7 +1,7 @@
 # Settings for the MQTT Client. Currently only these three are supported
 mqtt:
   # The MQTT broker to connect to
-  server: tcp://192.168.127.240:1883
+  server: tcp://192.168.127.85:1883
   # Optional: Username and Password for authenticating with the MQTT Server
   # user: bob
   # password: happylittleclouds
@@ -23,27 +23,43 @@ cache:
 # This is a list of valid metrics. Only metrics listed here will be exported
 metrics:
   # The name of the metric in prometheus
-  - prom_name: generated_energy_kilowatthours_today
+  - prom_name: networkowl_generated_energy_kilowatthours_today
     mqtt_name: "solar_genWattsToday"
     help: "solar PV power generated today"
     type: gauge
-  - prom_name: exported_energy_kilowatthours_today
+  - prom_name: networkowl_exported_energy_kilowatthours_today
     mqtt_name: "solar_expWattsToday"
     help: "solar PV power exported today"
     type: gauge
-  - prom_name: generated_energy_kilowatthours_now
+  - prom_name: networkowl_generated_energy_kilowatthours_now
     mqtt_name: "solar_genWattsNow"
     help: "solar PV power being generated now"
     type: gauge
-  - prom_name: exported_energy_kilowatthours_now
+  - prom_name: networkowl_exported_energy_kilowatthours_now
     mqtt_name: "solar_expWattsNow"
     help: "solar PV power being exported now"
     type: gauge
-  - prom_name: consumed_energy_kilowatthours_now
+  - prom_name: networkowl_consumed_energy_kilowatthours_now
     mqtt_name: "elec_usedWattsNow"
     help: "power being using now"
     type: gauge
-  - prom_name: reactive_power_watt
-    mqtt_name: "ENERGY.ReactivePower"
-    help: "Currently reactive power"
+  - prom_name: networkowl_consumed_energy_kilowatthours_today
+    mqtt_name: "elec_usedWattsToday"
+    help: "power used today"
+    type: gauge
+  - prom_name: network_owl_heating_temp_now
+    mqtt_name: "heatingTemp"
+    help: "Heating temperature now"
+    type: gauge
+  - prom_name: network_owl_hotwater_temp_now
+    mqtt_name: "hotWaterTemp"
+    help: "Hot water temperature now"
+    type: gauge
+  - prom_name: network_owl_weather_code
+    mqtt_name: "weatherCode"
+    help: "Weather Code"
+    type: gauge
+  - prom_name: network_owl_weather_temp
+    mqtt_name: "temperature"
+    help: "Weather temperature"
     type: gauge
