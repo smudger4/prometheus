@@ -36,10 +36,10 @@ fi
 
 # copy config files to deployment directories
 cp docker-compose.yml $DOCKER/prometheus/docker-compose.yml
-cp -r prometheus/ $DOCKER/prometheus/prometheus/
-cp -r alertmanager/ $DOCKER/prometheus/alertmanager/
-cp -r grafana/ $DOCKER/prometheus/grafana/
-cp -r dashboards/ $DOCKER/prometheus/dashboards/
+cp -r prometheus/* $DOCKER/prometheus/prometheus/
+cp -r alertmanager/* $DOCKER/prometheus/alertmanager/
+cp -r grafana/* $DOCKER/prometheus/grafana/
+cp -r dashboards/* $DOCKER/prometheus/dashboards/
 cp run.sh $DOCKER/prometheus/
 cp stop.sh $DOCKER/prometheus/
 chmod +x $DOCKER/prometheus/run.sh $DOCKER/prometheus/stop.sh
@@ -50,17 +50,17 @@ case $PROM_ENV in
     dev)
         echo "Development environment device configs used"
         cp docker-compose-dev.yml $DOCKER/prometheus/docker-env.yml
-        cp -r mqtt2prometheus/ $DOCKER/prometheus/mqtt2prometheus/
+        cp -r mqtt2prometheus/* $DOCKER/prometheus/mqtt2prometheus/
         ;;
     test)
         echo "Test environment device configs used"
         cp docker-compose-test.yml $DOCKER/prometheus/docker-env.yml
-
+        cp -r mqtt2prometheus/* $DOCKER/prometheus/mqtt2prometheus/
         ;;
     prod)
         echo "Prod environment device configs used"
         cp docker-compose-prod.yml $DOCKER/prometheus/docker-env.yml
-
+        cp -r mqtt2prometheus/* $DOCKER/prometheus/mqtt2prometheus/
         ;;
     *)
         echo "No per-environment device configs enabled: set PROM_ENV accordingly"

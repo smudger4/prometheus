@@ -47,19 +47,19 @@ metrics:
     mqtt_name: "elec_usedWattsToday"
     help: "power used today"
     type: gauge
-  - prom_name: network_owl_heating_temp_now
+  - prom_name: networkowl_heating_temp_now
     mqtt_name: "heatingTemp"
     help: "Heating temperature now"
     type: gauge
-  - prom_name: network_owl_hotwater_temp_now
+  - prom_name: networkowl_hotwater_temp_now
     mqtt_name: "hotWaterTemp"
     help: "Hot water temperature now"
     type: gauge
-  - prom_name: network_owl_weather_code
+  - prom_name: networkowl_weather_code
     mqtt_name: "weatherCode"
     help: "Weather Code"
     type: gauge
-  - prom_name: network_owl_weather_temp
+  - prom_name: networkowl_weather_temp
     mqtt_name: "temperature"
     help: "Weather temperature"
     type: gauge

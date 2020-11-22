@@ -17,8 +17,6 @@ services:
     networks:
       - back-tier
     restart: always
-    deploy:
-      mode: global
   alertmanager:
   cadvisor:
   grafana:
