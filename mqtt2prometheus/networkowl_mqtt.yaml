@@ -40,11 +40,11 @@ metrics:
     help: "solar PV power being exported now"
     type: gauge
   - prom_name: networkowl_used_energy_kilowatthours_now
-    mqtt_name: "electricity_usedWattsNow"
+    mqtt_name: "elec_usedWattsNow"
     help: "power being using now"
     type: gauge
   - prom_name: networkowl_used_energy_kilowatthours_today
-    mqtt_name: "electricity_usedWattsToday"
+    mqtt_name: "elec_usedWattsToday"
     help: "power used today"
     type: gauge
   - prom_name: networkowl_heating_temp_now
