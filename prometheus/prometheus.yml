@@ -77,3 +77,12 @@ scrape_configs:
     static_configs:
       - targets: ['networkowl_mqtt:9641']
 
+  - job_name: 'metriful_mqtt'
+    scrape_interval: 10s
+    dns_sd_configs:
+    - names:
+      - 'tasks.metriful_mqtt'
+      type: 'A'
+      port: 9641
+    static_configs:
+      - targets: ['metriful_mqtt:9641']

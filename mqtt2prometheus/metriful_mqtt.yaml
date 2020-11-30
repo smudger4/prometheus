@@ -1,0 +1,69 @@
+# Settings for the MQTT Client. Currently only these three are supported
+mqtt:
+  # The MQTT broker to connect to
+  server: tcp://192.168.127.4:1883
+  # Optional: Username and Password for authenticating with the MQTT Server
+  # user: bob
+  # password: happylittleclouds
+  # The Topic path to subscribe to. Be aware that you have to specify the wildcard.
+  #topic_path: tele/+/SENSOR
+  topic_path: metriful/#
+  # Optional: Regular expression to extract the device ID from the topic path. The default regular expression, assumes
+  # that the last "element" of the topic_path is the device id.
+  # The regular expression must contain a named capture group with the name deviceid
+  # For example the expression for tasamota based sensors is "tele/(?P<deviceid>.*)/.*"
+  #device_id_regex: "metriful/(?P<deviceid>.*)/.*"
+  # The MQTT QoS level
+  qos: 0
+cache:
+  # Timeout. Each received metric will be presented for this time if no update is send via MQTT.
+  # Set the timeout to -1 to disable the deletion of metrics from the cache. The exporter presents the ingest timestamp
+  # to prometheus.
+  timeout: 24h
+# This is a list of valid metrics. Only metrics listed here will be exported
+metrics:
+  # The name of the metric in prometheus
+  - prom_name: metriful_temperature
+    mqtt_name: "temperature"
+    help: "Temperature (C)"
+    type: gauge
+  - prom_name: metriful_pressure
+    mqtt_name: "pressure"
+    help: "Air pressure (Pa)"
+    type: gauge
+  - prom_name: metriful_humidity
+    mqtt_name: "humidity"
+    help: "Relative humidity (%)"
+    type: gauge
+  - prom_name: metriful_aqi
+    mqtt_name: "aqi"
+    help: "Air Quality Index"
+    type: gauge
+  - prom_name: metriful_aqi_string
+    mqtt_name: "aqi-string"
+    help: "Air Quality Index String"
+    type: gauge
+  - prom_name: metriful_bvoc
+    mqtt_name: "bvoc"
+    help: "Breath Volatile Organic Compounds"
+    type: gauge
+  - prom_name: metriful_spl
+    mqtt_name: "spl"
+    help: "Sound Pressure (dBA)"
+    type: gauge
+  - prom_name: metriful_peak_amp
+    mqtt_name: "peak_amp"
+    help: "Peak amplitude (mPa)"
+    type: gauge
+  - prom_name: metriful_lux
+    mqtt_name: "illuminance"
+    help: "Light illuminance (lux)"
+    type: gauge
+  - prom_name: metriful_particulates
+    mqtt_name: "particulates"
+    help: "Particulates (ppm)"
+    type: gauge
+  - prom_name: metriful_co2e
+    mqtt_name: "co2e"
+    help: "Estimated CO2 concentration"
+    type: gauge

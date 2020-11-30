@@ -32,3 +32,13 @@ services:
     networks:
       - back-tier
     restart: always
+  metriful_mqtt:
+    image: hikhvar/mqtt2prometheus
+    ports:
+      - "9642:9641"
+    volumes:
+      - ./mqtt2prometheus/metriful_mqtt.yaml:/config.yaml
+    networks:
+      - back-tier
+    restart: always
+

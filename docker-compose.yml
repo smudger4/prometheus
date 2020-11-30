@@ -22,10 +22,6 @@ services:
       - '--web.console.templates=/usr/share/prometheus/consoles'
     ports:
       - 9090:9090
-    #links:
-    #  - cadvisor:cadvisor
-    #  - alertmanager:alertmanager
-    #  - pushgateway:pushgateway
     depends_on:
       - cadvisor
       - pushgateway
@@ -33,10 +29,6 @@ services:
     networks:
       - back-tier
     restart: always
-#    deploy:
-#      placement:
-#        constraints:
-#          - node.hostname == ${HOSTNAME}
 
   alertmanager:
     image: prom/alertmanager
@@ -50,10 +42,6 @@ services:
     command:
       - '--config.file=/etc/alertmanager/config.yml'
       - '--storage.path=/alertmanager'
-#    deploy:
-#      placement:
-#        constraints:
-#          - node.hostname == ${HOSTNAME}
   cadvisor:
     image: google/cadvisor
     volumes:
@@ -66,8 +54,6 @@ services:
     networks:
       - back-tier
     restart: always
-    #deploy:
-    #  mode: global
 
   grafana:
     image: grafana/grafana

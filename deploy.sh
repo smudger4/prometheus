@@ -51,6 +51,7 @@ case $PROM_ENV in
         echo "Development environment device configs used"
         cp docker-compose-dev.yml $DOCKER/prometheus/docker-env.yml
         cp -r mqtt2prometheus/* $DOCKER/prometheus/mqtt2prometheus/
+        
         ;;
     test)
         echo "Test environment device configs used"
